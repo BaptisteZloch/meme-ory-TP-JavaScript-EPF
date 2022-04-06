@@ -28,7 +28,7 @@
     init() {
       // fetch the cards configuration from the server
       this.fetchConfig(
-        function (config) {
+        (config) =>{
           // TODO Step 3.2: use arrow function
           this._config = config;
 
@@ -42,7 +42,7 @@
 
           for (let i in this._cards) {
             // TODO Step 3.3: use Array.forEach()
-            (function () {
+            (() =>{
               // TODO Step 3.2: use arrow function
               const card = this._cards[i];
               this._boardElement.appendChild(card.getElement());
@@ -52,11 +52,11 @@
                   this._flipCard(card);
                 }.bind(this)
               ); // TODO Step 3.2 use arrow function.
-            }.bind(this)());
+            });
           }
 
           this.start();
-        }.bind(this)
+        }
       );
     }
 
@@ -70,11 +70,11 @@
       document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
 
       this._timer = setInterval(
-        function () {
+        () =>{
           // TODO Step 3.2: use arrow function
           // TODO Step 3.2: use template literals (backquotes)
           document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
-        }.bind(this),
+        },
         1000
       );
     }
@@ -90,7 +90,7 @@
       xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
 
       // TODO Step 3.2 use arrow function
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange =  () => {
         let status;
         let data;
         // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
@@ -116,14 +116,14 @@
       clearInterval(this._timer);
 
       setTimeout(
-        function () {
+        () => {
           // TODO Step 3.2: use arrow function.
           // TODO Step 1: replace with '../score/score.component.html?name=...' location
           // TODO Step 3.2: use template literals (backquotes)
           // TODO Step 7: change path to: `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`;
           window.location =
             `../score/score.component.html?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
-        }.bind(this),
+        },
         750
       ); // TODO Step 3.2: Why bind(this)?
     }
@@ -167,7 +167,7 @@
           // wait a short amount of time before hiding both cards
           // TODO Step 3.2 use arrow function
           setTimeout(
-            function () {
+            () =>{
               // hide the cards
               this._flippedCard.flip();
               card.flip();
@@ -175,7 +175,7 @@
 
               // reset flipped card for the next turn.
               this._flippedCard = null;
-            }.bind(this),
+            },
             500
           );
         }

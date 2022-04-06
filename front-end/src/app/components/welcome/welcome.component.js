@@ -13,7 +13,7 @@
 
       form.addEventListener(
         "submit",
-        function (event) {
+        (event)=> {
           // TODO Step 3.2: use arrow function
 
           event.preventDefault();
@@ -26,7 +26,7 @@
 
             _startGame(name, size);
           }
-        }.bind(this),
+        },
         false
       );
       return this;
