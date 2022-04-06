@@ -15,7 +15,7 @@
   class GameComponent {
     constructor() {
       // gather parameters from URL
-      var params = parseUrl();
+      let params = parseUrl();
 
       // save player name & game ize
       this._name = params.name;
@@ -34,17 +34,17 @@
 
           // create a card out of the config
           this._cards = []; // TODO Step 3.3: use Array.map()
-          for (var i in this._config.ids) {
+          for (let i in this._config.ids) {
             this._cards[i] = new CardComponent(this._config.ids[i]);
           }
 
           this._boardElement = document.querySelector(".cards");
 
-          for (var i in this._cards) {
+          for (let i in this._cards) {
             // TODO Step 3.3: use Array.forEach()
             (function () {
               // TODO Step 3.2: use arrow function
-              var card = this._cards[i];
+              const card = this._cards[i];
               this._boardElement.appendChild(card.getElement());
               card.getElement().addEventListener(
                 "click",
@@ -65,17 +65,15 @@
     /* method GameComponent.start */
     start() {
       this._startTime = Date.now();
-      var seconds = 0;
+      let seconds = 0;
       // TODO Step 3.2: use template literals (backquotes)
-      document.querySelector("nav .navbar-title").textContent =
-        "Player: " + this._name + ". Elapsed time: " + seconds++;
+      document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
 
       this._timer = setInterval(
         function () {
           // TODO Step 3.2: use arrow function
           // TODO Step 3.2: use template literals (backquotes)
-          document.querySelector("nav .navbar-title").textContent =
-            "Player: " + this._name + ". Elapsed time: " + seconds++;
+          document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
         }.bind(this),
         1000
       );
@@ -83,18 +81,18 @@
 
     /* method GameComponent.fetchConfig */
     fetchConfig(cb) {
-      var xhr =
+      const xhr =
         typeof XMLHttpRequest != "undefined"
           ? new XMLHttpRequest()
           : new ActiveXObject("Microsoft.XMLHTTP");
 
       // TODO Step 3.2 use template literals
-      xhr.open("get", environment.api.host + "/board?size=" + this._size, true);
+      xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
 
       // TODO Step 3.2 use arrow function
       xhr.onreadystatechange = function () {
-        var status;
-        var data;
+        let status;
+        let data;
         // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
         if (xhr.readyState == 4) {
           // `DONE`
@@ -112,7 +110,7 @@
 
     /* method GameComponent.gotoScore */
     gotoScore() {
-      var timeElapsedInSeconds = Math.floor(
+      const timeElapsedInSeconds = Math.floor(
         (Date.now() - this._startTime) / 1000
       );
       clearInterval(this._timer);
@@ -124,12 +122,7 @@
           // TODO Step 3.2: use template literals (backquotes)
           // TODO Step 7: change path to: `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`;
           window.location =
-            "../score/score.component.html?name=" +
-            this._name +
-            "&size=" +
-            this._size +
-            "&time=" +
-            timeElapsedInSeconds;
+            `../score/score.component.html?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
         }.bind(this),
         750
       ); // TODO Step 3.2: Why bind(this)?
@@ -192,16 +185,16 @@
 
   // TODO Step 6: Move this method to utils.js
   function parseUrl() {
-    var url = window.location;
-    var query = url.href.split("?")[1] || "";
-    var delimiter = "&";
-    var result = {};
+    let url = window.location;
+    let query = url.href.split("?")[1] || "";
+    let delimiter = "&";
+    let result = {};
 
-    var parts = query.split(delimiter);
+    let parts = query.split(delimiter);
     // TODO Step 3.3: Use Array.map() & Array.reduce()
     for (var i in parts) {
-      var item = parts[i];
-      var kv = item.split("=");
+      let item = parts[i];
+      let kv = item.split("=");
       result[kv[0]] = kv[1];
     }
 

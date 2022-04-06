@@ -20,10 +20,8 @@
       // TODO Step 1: Change images location to ./card/assets/***.png
       // TODO Step 3.2: use template literals (backquotes)
       // TODO Step 7: Update the path for images with 'src/app/components/game/card/assets/card***'
-      this._imageElt.querySelector("img.front-face").src =
-        "./card/assets/card-" + this._id + ".png";
-      this._imageElt.querySelector("img.back-face").src =
-        "./card/assets/back.png";
+      this._imageElt.querySelector("img.front-face").src =`./card/assets/card-${this._id}.png`;
+      this._imageElt.querySelector("img.back-face").src = "./card/assets/back.png";
     }
     /* method CardComponent.getElement */
     // TODO Step 7: remove this method

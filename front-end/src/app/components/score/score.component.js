@@ -9,7 +9,7 @@
   /* class ScoreComponent constructor */
   class ScoreComponent {
     constructor() {
-      var params = parseUrl();
+      let params = parseUrl();
       this.name = params.name;
       this.size = parseInt(params.size);
       this.time = parseInt(params.time);
@@ -26,16 +26,16 @@
 
   // TODO Step 6: Move this method to utils.js
   function parseUrl() {
-    var url = window.location;
-    var query = url.href.split("?")[1] || "";
-    var delimiter = "&";
-    var result = {};
+    let url = window.location;
+    let query = url.href.split("?")[1] || "";
+    let delimiter = "&";
+    let result = {};
 
     var parts = query.split(delimiter);
     // TODO Step 3.3: Use Array.map() & Array.reduce()
     for (var i in parts) {
-      var item = parts[i];
-      var kv = item.split("=");
+      let item = parts[i];
+      let kv = item.split("=");
       result[kv[0]] = kv[1];
     }
 

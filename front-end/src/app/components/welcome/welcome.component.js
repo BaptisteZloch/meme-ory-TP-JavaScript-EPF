@@ -9,7 +9,7 @@
   class WelcomeComponent {
     /* method WelcomeComponent.init */
     init() {
-      var form = document.querySelector("form.form-signin");
+      const form = document.querySelector("form.form-signin");
 
       form.addEventListener(
         "submit",
@@ -40,7 +40,7 @@
     // TODO Step 3.2: use template literals (backquotes)
     // TODO Step 7: change path to: `game?name=${name}=name&size=${size}`
     window.location =
-      "../game/game.component.html?name=" + name + "&size=" + size;
+      `../game/game.component.html?name=${name}&size=${size}`;
   }
 
   // put component in global scope, to be runnable right from the HTML.

@@ -13,5 +13,10 @@ Q2) Dans `^5.<X>.<Y>` `^` signifie que la version doit commencer par un 5, c'est
 
 Q3) Les  `devdependancies` signifient que ce sont des dépendances qui s'installent uniquement dans un environnement de développement et non dans un environnement de prod.
 
-Q4) 
+## STEP 3
+Q1) In Java but not in JavaScript ??
+
+## STEP 4
+Q1) `let` a une porté moins lontaine que `var` en effet, `let` s'arrête à la fonction courante entre les `{...}` tandis que `var` est utilisable hors de la fonction il a une porté plus large. On peut l'utiliser au niveau de la fonction et tout autour. On peut dire que `var` a une portée globale.
+
 
