@@ -1,0 +1,15 @@
+{
+  "name": "meme-ory",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server -c-1"
+  },
+  "author": "BaptisteZLoch",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
