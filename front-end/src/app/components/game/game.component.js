@@ -34,27 +34,23 @@
 
           // create a card out of the config
           this._cards = []; // TODO Step 3.3: use Array.map()
-          for (let i in this._config.ids) {
-            this._cards[i] = new CardComponent(this._config.ids[i]);
-          }
+
+          this._config.ids.map((id) => this._cards.push(new CardComponent(id)))
+
 
           this._boardElement = document.querySelector(".cards");
 
-          for (let i in this._cards) {
-            // TODO Step 3.3: use Array.forEach()
-            (() =>{
-              // TODO Step 3.2: use arrow function
-              const card = this._cards[i];
-              this._boardElement.appendChild(card.getElement());
-              card.getElement().addEventListener(
-                "click",
-                function () {
-                  this._flipCard(card);
-                }.bind(this)
-              ); // TODO Step 3.2 use arrow function.
-            });
-          }
-
+          this._cards.forEach((element)=>{
+            // TODO Step 3.2: use arrow function
+            const card = element;
+            this._boardElement.appendChild(element.getElement());
+            card.getElement().addEventListener(
+              "click",
+              () => {
+                this._flipCard(card);
+              }
+            ); // TODO Step 3.2 use arrow function.
+          })
           this.start();
         }
       );
@@ -70,7 +66,7 @@
       document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
 
       this._timer = setInterval(
-        () =>{
+        () => {
           // TODO Step 3.2: use arrow function
           // TODO Step 3.2: use template literals (backquotes)
           document.querySelector("nav .navbar-title").textContent =`Player: ${this._name}. Elapsed time: ${seconds++}`;
@@ -90,7 +86,7 @@
       xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
 
       // TODO Step 3.2 use arrow function
-      xhr.onreadystatechange =  () => {
+      xhr.onreadystatechange = () => {
         let status;
         let data;
         // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
@@ -116,7 +112,7 @@
       clearInterval(this._timer);
 
       setTimeout(
-        () => {
+        () =>{
           // TODO Step 3.2: use arrow function.
           // TODO Step 1: replace with '../score/score.component.html?name=...' location
           // TODO Step 3.2: use template literals (backquotes)
@@ -167,7 +163,7 @@
           // wait a short amount of time before hiding both cards
           // TODO Step 3.2 use arrow function
           setTimeout(
-            () =>{
+             () => {
               // hide the cards
               this._flippedCard.flip();
               card.flip();
@@ -188,17 +184,21 @@
     let url = window.location;
     let query = url.href.split("?")[1] || "";
     let delimiter = "&";
-    let result = {};
 
     let parts = query.split(delimiter);
     // TODO Step 3.3: Use Array.map() & Array.reduce()
-    for (var i in parts) {
-      let item = parts[i];
-      let kv = item.split("=");
-      result[kv[0]] = kv[1];
-    }
 
-    return result;
+    return parts.map((items)=>{
+      return items.split("=")
+    }).reduce((result,kv)=>{
+      result[kv[0]] = kv[1]
+      return result
+    },{});
+
+    //let result = {};
+    /*parts.forEach((element)=>{
+      result[kv[0]] = element.split("=")[1]
+    })*/
   }
 
   // put component in global scope, to be runnable right from the HTML.

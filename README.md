@@ -19,4 +19,6 @@ Q1) In Java but not in JavaScript ??
 ## STEP 4
 Q1) `let` a une porté moins lontaine que `var` en effet, `let` s'arrête à la fonction courante entre les `{...}` tandis que `var` est utilisable hors de la fonction il a une porté plus large. On peut l'utiliser au niveau de la fonction et tout autour. On peut dire que `var` a une portée globale.
 
+Q2) La méthode `bind()` crée une nouvelle fonction qui, lorsqu'elle est appelée, a pour contexte this la valeur passée en paramètre et éventuellement une suite d'arguments qui précéderont ceux fournis à l'appel de la fonction créée.
 
+## STEP 5
