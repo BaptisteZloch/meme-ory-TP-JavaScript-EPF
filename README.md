@@ -11,4 +11,7 @@ Q1) package-lock.json est un fichier qui représente toutes les dépendances et 
 
 Q2) Dans `^5.<X>.<Y>` `^` signifie que la version doit commencer par un 5, c'est une expression régulière.
 
+Q3) Les  `devdependancies` signifient que ce sont des dépendances qui s'installent uniquement dans un environnement de développement et non dans un environnement de prod.
+
+Q4) 
 
