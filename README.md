@@ -30,6 +30,18 @@ ECMAScript 2017 a introduit `async / await`
 ## STEP 5
 `@babel` indique ou trouver et prendre le dépôt npm?
 
+Q : Look at the files produced within dist/ folder. How babel transpile your class WelcomeComponent?
+
+
+Q : What is the weight of the transpiled sources compared to your original sources?
+
+## STEP 6
+`import * from './utils'` va importer l'ensemble des composants, classes, function dans utils.js tandis que  `import { parseUrl } from './utils'` va elle importer uniquement  la fonction `parseUrl()`
+
+## STEP 7
+
+
+
 
 
 
