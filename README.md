@@ -38,8 +38,11 @@ Q : What is the weight of the transpiled sources compared to your original sourc
 ## STEP 6
 `import * from './utils'` va importer l'ensemble des composants, classes, function dans utils.js tandis que  `import { parseUrl } from './utils'` va elle importer uniquement  la fonction `parseUrl()`
 
-## STEP 7
+## STEP 6.2
+Q : Why the utils.js will also be transpiled? 
+Q : What does the webpack --config webpack.config.js do ?
 
+## STEP 7
 
 
 
