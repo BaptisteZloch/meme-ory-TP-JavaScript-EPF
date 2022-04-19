@@ -25,35 +25,34 @@
     }
 
     /* method GameComponent.init */
-    init() {
-      // fetch the cards configuration from the server
-      this.fetchConfig(
-        (config) =>{
+    
+      init() {// fetch the cards configuration from the server
+        const config = await this.fetchConfig();
+        //.then((config) => {
+        // TODO Step 3.2: use arrow function
+        this._config = config;
+
+        // create a card out of the config
+        this._cards = []; // TODO Step 3.3: use Array.map()
+
+        this._config.ids.map((id) => this._cards.push(new CardComponent(id)))
+
+
+        this._boardElement = document.querySelector(".cards");
+
+        this._cards.forEach((element)=>{
           // TODO Step 3.2: use arrow function
-          this._config = config;
-
-          // create a card out of the config
-          this._cards = []; // TODO Step 3.3: use Array.map()
-
-          this._config.ids.map((id) => this._cards.push(new CardComponent(id)))
-
-
-          this._boardElement = document.querySelector(".cards");
-
-          this._cards.forEach((element)=>{
-            // TODO Step 3.2: use arrow function
-            const card = element;
-            this._boardElement.appendChild(element.getElement());
-            card.getElement().addEventListener(
-              "click",
-              () => {
-                this._flipCard(card);
-              }
-            ); // TODO Step 3.2 use arrow function.
-          })
-          this.start();
-        }
-      );
+          const card = element;
+          this._boardElement.appendChild(element.getElement());
+          card.getElement().addEventListener(
+            "click",
+            () => {
+              this._flipCard(card);
+            }
+          ); // TODO Step 3.2 use arrow function.
+        })
+        this.start();
+      //});
     }
 
     // TODO Step 7 implement getTemplate() {}
@@ -76,32 +75,12 @@
     }
 
     /* method GameComponent.fetchConfig */
-    fetchConfig(cb) {
-      const xhr =
-        typeof XMLHttpRequest != "undefined"
-          ? new XMLHttpRequest()
-          : new ActiveXObject("Microsoft.XMLHTTP");
-
-      // TODO Step 3.2 use template literals
-      xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
-
-      // TODO Step 3.2 use arrow function
-      xhr.onreadystatechange = () => {
-        let status;
-        let data;
-        // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
-        if (xhr.readyState == 4) {
-          // `DONE`
-          status = xhr.status;
-          if (status == 200) {
-            data = JSON.parse(xhr.responseText);
-            cb(data);
-          } else {
-            throw new Error(status);
-          }
-        }
-      };
-      xhr.send();
+    async fetchConfig() {
+      return await fetch(`${environment.api.host}/board?size=${this.  _size}`, {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .catch((error) => console.log("Error while fetching   config: ", error));
     }
 
     /* method GameComponent.gotoScore */

@@ -21,4 +21,6 @@ Q1) `let` a une porté moins lontaine que `var` en effet, `let` s'arrête à la 
 
 Q2) La méthode `bind()` crée une nouvelle fonction qui, lorsqu'elle est appelée, a pour contexte this la valeur passée en paramètre et éventuellement une suite d'arguments qui précéderont ceux fournis à l'appel de la fonction créée.
 
-## STEP 5
+## STEP 4.1
+Les promesses permettent d'une part d'attendre la résolution complete d'une requete par exemple, on fonctionne donc en asynchrone (simulation du multithreading). De plus les promesses permettent aussi de gérer les erreurs.
+
