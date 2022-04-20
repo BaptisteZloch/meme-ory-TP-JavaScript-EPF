@@ -15,6 +15,11 @@ export class ScoreComponent extends Component {
     document.getElementById("name").innerText = this.name;
     document.getElementById("size").innerText = this.size;
     document.getElementById("time").innerText = this.time;
+    setTimeout(
+      () =>
+        (window.location.hash = ``),
+      7000
+    );
   }
   getTemplate() {
     return template;
