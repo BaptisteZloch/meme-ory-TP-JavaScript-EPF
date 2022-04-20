@@ -6,13 +6,11 @@ export class WelcomeComponent extends Component {
   constructor(){
     super("welcome");
   }
-  /* method WelcomeComponent.init */
   init() {
     const form = document.querySelector("form.form-signin");
     form.addEventListener(
       "submit",
       (event) => {
-        // TODO Step 3.2: use arrow function
         event.preventDefault();
         if (form.checkValidity() === false) {
           event.stopPropagation();
@@ -32,10 +30,6 @@ export class WelcomeComponent extends Component {
   getTemplate() { return template; }
 }
 
-// TODO Step 7 implement
-
 function _startGame(name, size) {
   window.location.hash = `game?name=${name}=name&size=${size}`;
 }
-
-// put component in global scope, to be runnable right from the HTML.
