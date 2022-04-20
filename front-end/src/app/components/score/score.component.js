@@ -19,7 +19,7 @@ export class ScoreComponent extends Component {
     setTimeout(
       () =>
         (window.location.hash = ``),
-      7000
+      5000
     );
   }
   getTemplate() {
