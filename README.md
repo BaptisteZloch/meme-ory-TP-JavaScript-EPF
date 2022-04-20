@@ -30,7 +30,7 @@ What is a devDependency exactly? What are the differences with a dependency?
 
 ### Question 7 
 Can you think of at least 2 things that are possible with Java classes, but cannot be done with ES6 classes?
-- A FAIRE
+- Impossible de faire des surcharges de méthodes, et on ne peut pas avoir d'interface pour les classes en ES6
 
 ### Question 8
 What are the differences between `var` and `let`
