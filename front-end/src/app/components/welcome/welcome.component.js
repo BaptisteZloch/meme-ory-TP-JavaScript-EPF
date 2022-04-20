@@ -2,6 +2,10 @@ import { Component } from "../../utils/component";
 import template from "./welcome.component.html";
 
 export class WelcomeComponent extends Component {
+
+  constructor(){
+    super("welcome");
+  }
   /* method WelcomeComponent.init */
   init() {
     const form = document.querySelector("form.form-signin");
