@@ -28,7 +28,7 @@ Les promesses permettent d'une part d'attendre la résolution complete d'une req
 ECMAScript 2017 a introduit `async / await`
 
 ## STEP 5
-`@babel` indique ou trouver et prendre le dépôt npm?
+`@babel` indique le nom de la personne qui possède la repository npm. Le nom peut aussi être une entreprise.
 
 Q : Look at the files produced within dist/ folder. How babel transpile your class WelcomeComponent?
 
