@@ -2,13 +2,14 @@ import { parseUrl } from "../../utils/utils";
 import template from "./game.component.html";
 import { Component } from "../../utils/component";
 import { CardComponent } from "./card/card.component";
-import './game.component.scss'
+import "./game.component.scss";
+import * as localforage from "localforage/dist/localforage";
 
-const environment ={
-  api:{
-    host:"http://localhost:8081"
-  }
-}
+const environment = {
+  api: {
+    host: "http://localhost:8081",
+  },
+};
 export class GameComponent extends Component {
   constructor() {
     super("game");
@@ -30,11 +31,10 @@ export class GameComponent extends Component {
       (Date.now() - this._startTime) / 1000
     );
 
-    setTimeout(
-      () =>
-        (window.location.hash = `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`),
-      750
-    );
+    setTimeout(() => {
+      localforage.clear();
+      window.location.hash = `score?name=${this._name}&size=${this._size}'&time=${timeElapsedInSeconds}`;
+    }, 750);
   }
   async init() {
     // fetch the cards configuration from the server
@@ -97,6 +97,29 @@ export class GameComponent extends Component {
     if (card.flipped) {
       return;
     }
+
+    localforage
+      .setItem(
+        "cards",
+        this._cards.map((card) => card["_id"])
+      )
+      .then(function () {
+        return localforage.getItem("cards");
+      })
+      .then(function (value) {
+        console.log(value);
+      })
+      .catch(function (err) {});
+
+    localforage
+      .setItem("time", Math.floor((Date.now() - this._startTime) / 1000))
+      .then(function () {
+        return localforage.getItem("time");
+      })
+      .then(function (value) {
+        console.log(value);
+      })
+      .catch(function (err) {});
 
     // flip the card
     card.flip();
