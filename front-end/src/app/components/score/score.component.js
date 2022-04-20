@@ -1,6 +1,7 @@
 import { parseUrl } from "../../utils/utils";
 import { Component } from "../../utils/component";
 import template from "./score.component.html";
+import './score.component.scss'
 
 export class ScoreComponent extends Component {
   constructor() {

@@ -1,6 +1,6 @@
 import { Component } from "../../utils/component";
 import template from "./welcome.component.html";
-
+import './welcome.component.scss'
 export class WelcomeComponent extends Component {
 
   constructor(){
