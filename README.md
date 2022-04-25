@@ -1,5 +1,5 @@
 # Responses TP JS
-
+**Auteurs : Thibault Serre & Baptiste Zloch**
 ### Question 1
 Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download overall? How many time did it took to load them all?
 - Sur la première vue : 5 fichiers, 60 ms
@@ -61,7 +61,7 @@ What is the weight of the transpiled sources compared to your original sources?
 - 16ko pour les files transpilés, 1.80Mo pour les originaux 
 
 ### Question 15
-What is the difference between import * from './utils' and import { parseUrl } from './utils'?
+What is the difference between `import * from './utils' and import { parseUrl } from './utils'`?
 - `import *` permet de import all alors que import {Function} n'importe qu'une fonction 
 
 ### Question 16
@@ -69,7 +69,7 @@ Why the utils.js will also be transpiled?
 - Parce que c'est un fichier .js dans le dossier /app et tous les .js dans /app ont été transpilés avant que util.js soit ajouté
 
 ### Question 17
-What does the webpack --config webpack.config.js do ?
+What does the `webpack --config webpack.config.js` do ?
 -  Un webpack permet, en reprenant tout le code de l'app, de pouvoir la lire dans tous les navigateurs web, c'est à la fois un serveur et un compilateur 
 
 ### Question 18
@@ -77,12 +77,12 @@ Play the whole game with size=2. By browsing the 3 views of the application, how
 - 15 fichiers ont été chargés, ces derniers ont été chargés en 445ms
 
 ### Question 19
-Can you guess how exactly style-loader works exactly?
+Can you guess how exactly `style-loader` works exactly?
 - style loader recupère tous les styles ecrits dans le css (en scss par ex) et insère le style (en css du coup) dans des balises styles aux bons endroits dans le head du html
 
 ### Question 20
 What does the _ prefix means on a sass file?
-- le préfix _ est une convention pour dire que le fichier `_nomfichier` correspond à une partie du css complet, et que fe fichier sera importé (@import) dans une stylsheet principale 
+- le préfix _ est une convention pour dire que le fichier `_nomfichier` correspond à une partie du css complet, et que fe fichier sera importé (`@import`) dans une stylsheet principale 
 cette méthode aide a organiser son arboresence, mais tout sera compilé dans un seul fichier.
 
 
