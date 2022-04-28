@@ -17,7 +17,7 @@ du coup il est necessaire soit d'enlever une des deux variables, soit de laisser
 
 ### Question 4
 As you can see, `npm install` command also generated a `package-lock.json` file along with `package.json`. What is the purpose of this file?
-- Ce fichier permet de garder une trace des versions exactes de chaque packages qui ont été installés puis mis a jour pour que le produit soit 100 reproductibles, exactement à l'identique 
+- Ce fichier permet de garder une trace des versions exactes de chaque packages qui ont été installés puis mis a jour pour que le produit soit 100 reproductibles, exactement à l'identique pour toutes les personnes qui souhaiteraient l'installer quelque part.
 
 ### Question 5 
 By convention, all NPM dependencies use a 3-digit format for version numbers. How do you call this? Can you explain the meaning of the ^ symbol next to the bootstrap version?
@@ -26,7 +26,7 @@ By convention, all NPM dependencies use a 3-digit format for version numbers. Ho
 
 ### Question 6 
 What is a devDependency exactly? What are the differences with a dependency?
-- Une dev dependency est une dépendance necessaire durant la phase de developpement contrairement a une dépendence "classique" qui est necessaire pour que le projet fonctionne
+- Une dev dependency est une dépendance necessaire durant la phase de developpement contrairement a une dépendence "classique" qui est necessaire pour que le projet fonctionne quand on le run 
 
 ### Question 7 
 Can you think of at least 2 things that are possible with Java classes, but cannot be done with ES6 classes?
@@ -34,11 +34,11 @@ Can you think of at least 2 things that are possible with Java classes, but cann
 
 ### Question 8
 What are the differences between `var` and `let`
-- la différence principale est que `var` est une fonction, on peut redéclarer `var a=5` plusieurs fois alors que `let` est un bloc, on ne peut le déclarer qu'une seule fois
+- la différence principale est que `var` est une fonction, on peut redéclarer `var a=5` plusieurs fois alors que `let` est un bloc, on ne peut le déclarer qu'une seule fois ///
 
 ### Question 9 
 What is the .bind(this) stuff? What does happen if you delete it? Is it needed when using an arrow function ?
-- la methode `.bind(this)` permet de creer une nouvelle fonction avec le this en paramètre lorqu'elle est appelée, la nouvelle fonction crée est une copie de la fonction qui précède le `bind(this)`
+- la methode `.bind(this)` permet de creer une nouvelle fonction avec le this en paramètre lorqu'elle est appelée, la nouvelle fonction crée est une copie de la méthode qui précède le `bind(this)`
 
 ### Question 10
 What are the advantages of Promises?
@@ -46,15 +46,15 @@ What are the advantages of Promises?
 
 ### Question 11 à faire
 What version of ECMAScript async / await was released in?
-- Dans la version ECMA-262, 8th edition, Juin 2017
+- Dans la version ECMA-262, 8ème edition, Juin 2017
 
 ### Question 12
 What does the @ symbol mean in @babel/***?
-- le symbole @ designe le nom de l'auteur (michel, stephane, francis, ou babel par exemple, gaston est une autre possibilité d'ailleurs) cela permet d'avoir plusieurs bibliothèques qui ont le meme nom, mais un auteur différent (ex: @babel/PommeGenerator, et @Michel/PommeGenerator, ces deux bibli ont le meme nom mais peuvent cohabiter) 
+- le symbole @ designe le nom de l'auteur (michel, stephane, francis, ou babel par exemple) cela permet d'avoir plusieurs bibliothèques qui ont le meme nom, mais un auteur différent (ex: @babel/PommeGenerator, et @Michel/PommeGenerator, ces deux bibli ont le meme nom mais peuvent cohabiter vu qu'on peut les différencier par autre chose que simplement leur nom) 
 
 ### Question 13 
 Look at the files produced within dist/ folder. How babel transpile your class WelcomeComponent?
-- Dans dist/ on se retrouve avec la meme arboresence que dans src, mais sans le css et l'html, uniquement les JS
+- Dans dist/ on se retrouve avec la meme arboresence que dans src, mais sans le css et l'html, uniquement les JS. De plus, pour transpiler WelcomeComponent, la classe welcome component est définie à partir de prototypes. Babel a mis en place 3 fonctions : `_classCallCheck` `_definePropreties` et `_createClass`, La première vérifie avant de créer la classe, s'il est possible d'en creer une, la seconde est utilisé dans la dernière pour creer le constructeur, et la dernière retourne un objet "constructeur"
 
 ### Question 14 
 What is the weight of the transpiled sources compared to your original sources?
@@ -62,7 +62,7 @@ What is the weight of the transpiled sources compared to your original sources?
 
 ### Question 15
 What is the difference between `import * from './utils' and import { parseUrl } from './utils'`?
-- `import *` permet de import all alors que import {Function} n'importe qu'une fonction 
+- `import *` permet de import all alors que `import {Function}` n'importe qu'une fonction (appellée dans cet exemple "Function"
 
 ### Question 16
 Why the utils.js will also be transpiled?
@@ -70,7 +70,7 @@ Why the utils.js will also be transpiled?
 
 ### Question 17
 What does the `webpack --config webpack.config.js` do ?
--  Un webpack permet, en reprenant tout le code de l'app, de pouvoir la lire dans tous les navigateurs web, c'est à la fois un serveur et un compilateur 
+-  Un webpack permet, en reprenant tout le code de l'app, de pouvoir la lire dans tous les navigateurs web (notamment les anciennes versions !), c'est à la fois un serveur et un compilateur 
 
 ### Question 18
 Play the whole game with size=2. By browsing the 3 views of the application, how many files did your browser download in total? How many time did it took to load them all?
@@ -78,7 +78,7 @@ Play the whole game with size=2. By browsing the 3 views of the application, how
 
 ### Question 19
 Can you guess how exactly `style-loader` works exactly?
-- style loader recupère tous les styles ecrits dans le css (en scss par ex) et insère le style (en css du coup) dans des balises styles aux bons endroits dans le head du html
+- style loader recupère tous les styles ecrits dans le css (en scss par ex) et insère le style (en css du coup) dans des balises styles aux bons endroits dans le head du html. 
 
 ### Question 20
 What does the _ prefix means on a sass file?
