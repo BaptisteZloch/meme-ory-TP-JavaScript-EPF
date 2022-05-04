@@ -34,7 +34,7 @@ Can you think of at least 2 things that are possible with Java classes, but cann
 
 ### Question 8
 What are the differences between `var` and `let`
-- la différence principale est que `var` est une fonction, on peut redéclarer `var a=5` plusieurs fois alors que `let` est un bloc, on ne peut le déclarer qu'une seule fois ///
+- `Var` et `Let` sont deux manières de définir des variables mutables. La différence entre les deux réside dan leur portée. En effet, `var` permet de définir des variables qui sont accessibles dans tout le bloc et dans les fonction englobantes (ascendante). alors que `Let` est accessible dans la fonction courante et ses fonctions descendantes. C'est ce qu'on appelle le scope ! 
 
 ### Question 9 
 What is the .bind(this) stuff? What does happen if you delete it? Is it needed when using an arrow function ?
@@ -78,7 +78,7 @@ Play the whole game with size=2. By browsing the 3 views of the application, how
 
 ### Question 19
 Can you guess how exactly `style-loader` works exactly?
-- style loader recupère tous les styles ecrits dans le css (en scss par ex) et insère le style (en css du coup) dans des balises styles aux bons endroits dans le head du html. 
+- style loader est un processus lancé par webpack qui permet de transpiler le scss en css, puis le passer dans le bundler. Ainsi les classes de styles peuvent être prises en compte dans les templates HTML.
 
 ### Question 20
 What does the _ prefix means on a sass file?
