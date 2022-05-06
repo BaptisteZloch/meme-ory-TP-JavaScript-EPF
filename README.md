@@ -8,12 +8,12 @@ Play the whole game with size=2. By browsing the 3 views of the application, how
 
 ### Question 2
 Component-oriented programming for the web is considered more maintainable. Why?
-- les composants sont plus simples à maintenir en web parce que lorsqu'il est necessaire d'effectuer des modification, il n'est pas necessaire de plonger dans tout le code, mais simplement de modifier ce que l'on veut dans les fichiers composants, l'ensemble des composants seront donc affectés (par exemple, changer la couleur principale du site, une valeur à changer plutot que 10 000 hexa disséminées partout dans le css)
+- les composants sont plus simples à maintenir en web. En effet, lorsqu'il est necessaire d'effectuer des modification, il n'est pas necessaire de plonger dans tout le code, mais simplement de modifier ce que l'on veut dans les fichiers composants, l'ensemble des composants seront donc affectés (par exemple, changer la couleur principale du site, une valeur à changer plutot que 10 000 hexa disséminées partout dans le css)
 
 ### Question 3
 If you look at the source code, every JS file wraps its code into a closure:
 - On a deux variables environnement si on enleve les closures, 
-du coup il est necessaire soit d'enlever une des deux variables, soit de laisser les closures
+du coup il est necessaire soit d'enlever une des deux variables, soit de laisser les closures.
 
 ### Question 4
 As you can see, `npm install` command also generated a `package-lock.json` file along with `package.json`. What is the purpose of this file?
@@ -38,7 +38,7 @@ What are the differences between `var` and `let`
 
 ### Question 9 
 What is the .bind(this) stuff? What does happen if you delete it? Is it needed when using an arrow function ?
-- la methode `.bind(this)` permet de creer une nouvelle fonction avec le this en paramètre lorqu'elle est appelée, la nouvelle fonction crée est une copie de la méthode qui précède le `bind(this)`
+- la methode `.bind(this)` permet de creer une nouvelle fonction avec le this en paramètre lorqu'elle est appelée, la nouvelle fonction crée est une copie de la méthode qui précède le `bind(this)`. Si on supprime `bind(this)`, la fonction n'est simplement plus appelée (par exemple si on enlève le `bind(this)` de la fonction responsable du retournement des cartes, les cartes ne se retourneront simplement plus lorsque l'on clique). L'utilisation d'arrow functions permet d'enlever les `bind(this)`, une fonciton arrow est naturellement bind.
 
 ### Question 10
 What are the advantages of Promises?
@@ -54,7 +54,7 @@ What does the @ symbol mean in @babel/***?
 
 ### Question 13 
 Look at the files produced within dist/ folder. How babel transpile your class WelcomeComponent?
-- Dans dist/ on se retrouve avec la meme arboresence que dans src, mais sans le css et l'html, uniquement les JS. De plus, pour transpiler WelcomeComponent, la classe welcome component est définie à partir de prototypes. Babel a mis en place 3 fonctions : `_classCallCheck` `_definePropreties` et `_createClass`, La première vérifie avant de créer la classe, s'il est possible d'en creer une, la seconde est utilisé dans la dernière pour creer le constructeur, et la dernière retourne un objet "constructeur"
+- Dans `dist/` on se retrouve avec la même arboresence que dans `src`, mais sans le css et l'html, uniquement les JS. De plus, pour transpiler WelcomeComponent, la classe welcome component est définie à partir de prototypes. Babel a mis en place 3 fonctions : `_classCallCheck` `_definePropreties` et `_createClass`, La première vérifie avant de créer la classe, s'il est possible d'en creer une, la seconde est utilisé dans la dernière pour creer le constructeur, et la dernière retourne un objet "constructeur"
 
 ### Question 14 
 What is the weight of the transpiled sources compared to your original sources?
